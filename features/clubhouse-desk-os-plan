@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+mkdir -p "$HOME/Documents/clubhouse-desk-os-session-plans"
+file="$HOME/Documents/clubhouse-desk-os-session-plans/plan-$(date +%Y%m%d-%H%M%S).md"
+{
+ printf '# clubhouse-desk-os session plan\n\n'
+ printf 'Created: %s\n\n' "$(date -Is)"
+ printf 'Purpose: club administration\n\n## Prompts\n'
+ printf '%s\n' '- What work item will you finish?' '- What is the next concrete action?' '- What records, approvals, or deadline matter?'
+ printf '\n## Notes\n'
+} > "$file"
+nano "$file"
+printf 'Saved locally: %s\n' "$file"
